@@ -2,6 +2,8 @@
 /nbproject
 /node_modules
 
+/.claude/last-session.md
+
 /extensions/*.zip
 
 /website/BingSiteAuth.xml
