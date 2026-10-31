@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p \"$CLAUDE_PROJECT_DIR/.claude\" && { echo \"# Last session — RcVCite\"; echo; echo \"- Ended: $(date -u +%Y-%m-%dT%H:%M:%SZ)\"; echo \"- Branch: $(git -C \"$CLAUDE_PROJECT_DIR\" rev-parse --abbrev-ref HEAD 2>/dev/null || echo unknown)\"; echo \"- Tree: $(test -n \"$(git -C \"$CLAUDE_PROJECT_DIR\" status --porcelain 2>/dev/null)\" && echo dirty || echo clean)\"; echo; echo \"Breadcrumb only. HANDOFF.md is the real handoff — run /handoff to refresh it.\"; } > \"$CLAUDE_PROJECT_DIR/.claude/last-session.md\""
+          }
+        ]
+      }
+    ]
+  }
+}
